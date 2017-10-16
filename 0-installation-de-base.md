@@ -9,7 +9,15 @@ Sudo permet de prendre les droits super-utilisateur tout en contrôlant finement
 
 Ces personnes sont appelées *sudoers*. Elles le deviennent dès qu'elles sont ajoutées au groupe `sudo`.
 
+Dans ce qui suit, les lignes qui commencent par un # sont un commentaire et
+ne doivent pas être saisies dans la ligne de commande.
+
+Une fois connecté à la machine (via un client SSH), taper les commandes suivantes:
+
 ```bash
+#Pour devenir super-utilisateur (root):
+su -
+
 #Installation
 apt-get install sudo
 
@@ -20,11 +28,11 @@ sudo -u <VOTRE UTILISATEUR> echo bonjour
 
 Remplacer `<VOTRE UTILISATEUR>` par le vrai identifiant de votre utilisateur. Par exemple: `paul`
 
-Se déconnecter de l'utilisateur `root`
+Se déconnecter de l'utilisateur `root` en tapant la commande `exit` (ou ctrl-D)
 
 Se déconnecter de l'utilisateur `<VOTRE UTILISATEUR>`. Ceci est nécessaire pour que `<VOTRE UTILISATEUR>` soit effectivement ajouté au groupe (il ne le sera pas pour une session déjà ouverte).
 
-Se reconnecter
+Se reconnecter (en dupliquant la session de votre client SSH par exemple)
 
 ## Installation ne
 
