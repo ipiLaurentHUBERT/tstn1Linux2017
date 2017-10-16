@@ -7,8 +7,8 @@ Son nom sera: `netgateway`.
 
 Cette machine comportera :
 
-* 256 Mo de RAM
-* 3 Go de disque dur
+* 128 Mo de RAM
+* 4 Go de disque dur
 * 2 cartes réseau montées sur deux `vmnet` différents
 * aucune carte son, ni imprimante
 
