@@ -240,7 +240,7 @@ zone "81.16.172.in-addr.arpa" {
 
 Edition du fichier `/etc/bind/db.example.com`
 
-On fait correspondre ici un nom à une adresse IP. Ainsi, `trisquel.example.com` aura l'adresse `172.16.81.12`
+On fait correspondre ici un nom à une adresse IP. Ainsi, `windows.example.com` aura l'adresse `172.16.81.12`
 
 ```conf
 $TTL    604800
@@ -254,7 +254,7 @@ netservice      IN      A       172.16.81.2
 ;serveur
 debiansrv       IN      A       172.16.81.11
 debsrv          IN      A       172.16.81.11
-trisquel        IN      A       172.16.81.12
+windows        IN      A       172.16.81.12
 
 ; Infrastructure
 ; LDAP
@@ -277,7 +277,7 @@ trisquel        IN      A       172.16.81.12
 
 Edition du fichier `/etc/bind/db.81.16.172.in-addr.arpa`
 
-Ici on fait correspondre l'IP au nom. Ainsi, à partir de l'adresse **12** (et donc 172.16.81.**12**) on obtient le nom de la machine sur le domaine `example.com` (ici `trisquel.example.com`)
+Ici on fait correspondre l'IP au nom. Ainsi, à partir de l'adresse **12** (et donc 172.16.81.**12**) on obtient le nom de la machine sur le domaine `example.com` (ici `windows.example.com`)
 
 ```bash
 $TTL 1800
@@ -287,7 +287,7 @@ $TTL 1800
 2       IN      PTR     ns.example.com.
 
 11      IN      PTR     debiansrv.example.com.
-12      IN      PTR     trisquel.example.com.                    
+12      IN      PTR     windows.example.com.                    
 
 ;150     IN      PTR     llithyie.example.com.
 ;151     IN      PTR     cerbere.example.com.
