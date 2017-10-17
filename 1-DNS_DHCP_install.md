@@ -129,9 +129,11 @@ Editer le fichier `/etc/default/isc-dhcp-server`
 
 Modifier la valeur de INTERFACES:
 ```conf
-INTERFACES="eth1"
+INTERFACESv4="eth1"
+INTERFACESv6=""
+# Pour cette dernière ligne, ajouter l'interface si votre serveur
+# DHCP doit aussi prendre en compte les adresses IPv6
 ```
-
 
 
 #### Configuration des adresses
