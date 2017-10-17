@@ -462,6 +462,14 @@ iptables -X
 
 Vous devez tester que vos machines clientes se connectent à Internet.
 
+#### Configuration spécifique pour une machine avec deux cartes réseau
+
+Attention: il sera nécessaire de rajouter sur les clients (VM) les lignes suivantes si elles ont une seconde carte réseau (en adaptant les noms des interfaces) :
+
+```conf
+allow-hotplug eth1
+iface eth1 inet dhcp
+```
 
 ## Interfaces graphiques pour Bind9
 
@@ -474,25 +482,3 @@ Client Web:
 Client lourd:
 
 * https://packages.debian.org/jessie/gadmin-bind
-
-
-
-## Configuration spécifique pour une machine avec deux cartes réseau
-Attention: il sera nécessaire de rajouter sur les clients (VM) les lignes suivantes si elles ont une seconde carte réseau:
-
-```conf
-allow-hotplug eth1
-iface eth1 inet dhcp
-```
-
-## Références
-https://www.guillaume-leduc.fr/projet-configuration-simple-facile-et-fonctionnelle-dun-dns-avec-bind9.html
-
-https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-14-04
-
-https://doc.ubuntu-fr.org/bind9
-
-
-## Exportation de Markdown
-
-[Export vers LaTeX](:projets:enseignement:supports:latex)
