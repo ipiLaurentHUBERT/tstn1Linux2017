@@ -12,34 +12,71 @@ Cette machine comportera :
 * 2 cartes réseau montées sur deux `vmnet` différents
 * aucune carte son, ni imprimante
 
-## Configuration du réseau VMWare
+## Configuration du réseau virtuel
 ![Schéma du réseau](images/reseau.png)
 
-Dans ce cas précis, on utilise une VM qui comporte deux cartes (et donc connectée à deux `vmnet` différents) :
+Dans ce cas précis, on utilise une VM qui comporte deux cartes (et donc connectée à deux cartes virtuelles différentes) :
 
-* une dont le réseau est le réseau externe (eth0).
-* une dont le réseau est 172.16.81.0/24 (eth1).
+* une dont le réseau est le réseau externe (`eth0`).
+* une dont le réseau est 172.16.81.0/24 (`eth1`).
 
-Ceci est à adapter aux besoins (c'est-à-dire au plan d'adressage que vous auriez mis en place).
+Ceci est à adapter aux besoins (c'est-à-dire au plan d'adressage que vous auriez mis en place ainsi qu'aux noms réels des cartes réseaux). Par exemple:
 
-**Vous devez impérativement gérer ces deux réseaux sur deux *vmnet* différents.**
+- `eth0` peut devenir `ens33` ou `enp0s3`
+- `eth1` peut devenir `ens34` ou `enp0s8`
+
+Dans ce cas, il faut adapter les instructions données ci-dessous en remplaçant `eth0` (respectivement `eth1`) par les valeurs données par la commande `ip a`.
+
+Exemple de sortie de `ip a` :
+
+```
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:bf:ce:9f brd ff:ff:ff:ff:ff:ff
+    inet 172.29.28.130/22 brd 172.29.31.255 scope global enp0s3
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:febf:ce9f/64 scope link
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 08:00:27:9c:38:62 brd ff:ff:ff:ff:ff:ff
+```
+
+- `1:` représente la boucle locale. La machine a pour nom réseau `localhost` et comme adresse IP `127.0.0.1` sur ce "réseau".
+- `2:` représente la première carte réseau connectée à la machine. Le nom de son interface réseau associé est ici `enp0s3`. Son adresse IP est ici `172.29.28.130`
+- `3:` représente la seconde carte réseau connectée à la machine. Le nom de son interface réseau associé est ici `enp0s8`. Son adresse IP est ici absente.
 
 
 
-### Avertissement
+
+### Sous VmWare
+
+**vous devez impérativement gérer ces deux réseaux sur deux *vmnet* différents.**
+
+Chaque `vmnet` représente un réseau.
+
+Chaque carte réseau de votre machine virtuelle doit être connecté à une `vmnet`:
+
+- première carte : `vmnet0` (réseau ponté / bridge)
+- seconde carte: `vmnet2` (réseau privé interne)
+
+
+
+#### Avertissement
 
 Toute configuration ne respectant pas ce qui précède risque de **provoquer des dysfonctionnements** sur le réseau local. Il est de votre responsabilité de configurer correctement vos cartes `vmnet`.
 
 
-### Configuration spécifique pour une machine avec deux cartes réseau
-Attention: il sera nécessaire de rajouter sur les clients (VM) les lignes suivantes si elles ont une seconde carte réseau:
 
-```conf
-allow-hotplug eth1
-iface eth1 inet dhcp
-```
 
-### Carte réseau eth1
+### Configuration de la seconde carte réseau
+
+Ici, il faut remplacer `eth1` par le bon nom d'interface (voir ci-dessus).
+
 On édite `/etc/network/interfaces`
 
 ```conf
@@ -48,9 +85,13 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
+auto eth0
 allow-hotplug eth0
 iface eth0 inet dhcp
 
+###################################
+# Partie à ajouter
+###################################
 auto eth1
 iface eth1 inet static
     address 172.16.81.2
@@ -58,10 +99,11 @@ iface eth1 inet static
     network 172.16.81.0
     netmask 255.255.255.0
     broadcast 172.16.81.255
+### FIN de la partie à ajouter ####
 
 ```
 
-Pas de gateway (eth1 n'est pas la passerelle vers internet)
+Pas de gateway (`eth1` n'est pas la passerelle vers internet)
 
 On redémarre:
 ```bash
@@ -432,6 +474,14 @@ Client lourd:
 * https://packages.debian.org/jessie/gadmin-bind
 
 
+
+## Configuration spécifique pour une machine avec deux cartes réseau
+Attention: il sera nécessaire de rajouter sur les clients (VM) les lignes suivantes si elles ont une seconde carte réseau:
+
+```conf
+allow-hotplug eth1
+iface eth1 inet dhcp
+```
 
 ## Références
 https://www.guillaume-leduc.fr/projet-configuration-simple-facile-et-fonctionnelle-dun-dns-avec-bind9.html
