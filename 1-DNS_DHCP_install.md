@@ -138,7 +138,8 @@ INTERFACESv6=""
 
 #### Configuration des adresses
 
-On édite ce fichier `/etc/dhcp/dhcpd.conf`:
+Editer ce fichier `/etc/dhcp/dhcpd.conf` pour que les valeurs correspondent à l'exemple ci-dessous (**les lignes précédées d'un `#` ne sont pas prises en compte,** ce sont des commentaires) :
+
 ```conf
 ddns-update-style none;
 
@@ -160,8 +161,8 @@ log-facility local7;
 
 # No service will be given on this subnet, but declaring it helps the
 # DHCP server to understand the network topology.
-subnet 192.168.0.0 netmask 255.255.255.0 {
-}
+#subnet 192.168.0.0 netmask 255.255.255.0 {
+#}
 
 ```
 
