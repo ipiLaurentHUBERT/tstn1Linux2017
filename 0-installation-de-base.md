@@ -54,14 +54,14 @@ Commenter les lignes commençant par `deb http://security.debian.org` et `deb-sr
 Rajouter les lignes suivantes (d'après https://wiki.debian.org/fr/SourcesList).
 
 ```
-deb http://deb.debian.org/debian jessie main contrib non-free
-deb-src http://deb.debian.org/debian jessie main contrib non-free
+deb http://deb.debian.org/debian stretch main contrib non-free
+deb-src http://deb.debian.org/debian stretch main contrib non-free
 
-deb http://deb.debian.org/debian jessie-updates main contrib non-free
-deb-src http://deb.debian.org/debian jessie-updates main contrib non-free
+deb http://deb.debian.org/debian stretch-updates main contrib non-free
+deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
 
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
+deb http://security.debian.org/ stretch/updates main contrib non-free
+deb-src http://security.debian.org/ stretch/updates main contrib non-free
 ```
 
 Les paquets `non-free` sont les paquets non libres de droits intellectuels.
