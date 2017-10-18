@@ -416,14 +416,10 @@ sudo apt-get install iptables-persistent
 Au moment de l'installation, l'installeur nous demande si nous souhaitons sauvegarder les règles. Ce qui est ici le cas.
 
 #### Sauvegarde en cas de modification
-Pour information, en cas de changement (par exemple une règle de NAT qui redirige le port 80):
-```bash
-    sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
-```
 
 Il suffit de relancer la commande suivante pour sauvegarder à nouveaux les règles iptables:
 ```bash
-    sudo dpkg-reconfigure -y iptables-persistent
+    sudo dpkg-reconfigure iptables-persistent
 ```
 
 #### Information complémentaire
@@ -441,7 +437,6 @@ Au redémarrage, on a l'équivalent des commandes suivantes qui est exécuté pa
     ip6tables-restore < /etc/iptables/rules.v6
 ```
 
-
 #### Effacement des règles iptables
 
 Le script suivant permet de supprimer toutes les règles iptables:
@@ -456,6 +451,16 @@ iptables -t nat -F
 iptables -t mangle -F
 iptables -X
 
+```
+
+#### Règles supplémentaires
+
+Ce qui suit n'est pas à faire. Il s'agit d'un exemple d'écriture d'une règle NAT sur la passerelle réseau.
+
+C'est un exemple d'une règle de NAT qui redirige le port 80  de la passerelle vers le port 8080 de cette même machine :
+
+```bash
+    sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
 ```
 
 
