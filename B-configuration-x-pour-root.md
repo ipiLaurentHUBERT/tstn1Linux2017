@@ -41,6 +41,19 @@ $ xauth add netservice/unix:10  MIT-MAGIC-COOKIE-1  9577b0ac5ac9e8cdb6a96e7b53f6
 $
 ```
 
+Le chiffre `10` de la chaîne `netservice/unix:10` correspond au numéro du DISPLAY. DISPLAY est une variable d'environnement qui permet aux applications d'afficher leur interface graphique.
+
+Pour connaitre la valeur de cette variable, taper:
+
+```bash
+$ echo $DISPLAY
+localhost:10.0
+```
+
+Le chiffre juste après le `:` (*10*) correspond ici au chiffre affiché sur la ligne du cookie: `netservice/unix:`*10*`  MIT-MAGIC-COOKIE-1  9577b0ac5ac9e8cdb6a96e7b53f6969a`
+
+Si vous lancez plusieurs sessions différentes, votre DISPLAY aura une valeur différente: à vérifier...
+
 3. Tester:
 
 ```bash
