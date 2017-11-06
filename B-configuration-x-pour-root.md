@@ -1,16 +1,28 @@
 # Connexion X et utilisateur Root
 
-## Problème
+## Installation du client X
+
+### Sur la machine cliente (hôte physique)
+
+Vous devez installer VCXSRV sur votre hôte pour pouvoir afficher les différentes applications graphiques de votre machine virtuelle.
+
+Configurer Putty pour autoriser le `X11-forwarding`
+
+### Sur la machine virtuelle
+On installe le paquet `x11-apps` et on lance `xeyes` ou `xclock`.
+
+Une fenêtre devrait apparaître
+
+
+## Blocage avec root
 On a parfois ce message quand on exécute un programme avec `sudo`
 
 ```
 X11 connection rejected because of wrong authentication.
 ```
 
-## Pour tester
-On installe le paquet `x11-apps` et on utilise `xeyes` avec `sudo`.
 
-## Solution
+### Solution
 
 Pour corriger le problème il faut:
 
