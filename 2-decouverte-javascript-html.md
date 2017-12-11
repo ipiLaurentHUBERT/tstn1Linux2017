@@ -195,3 +195,151 @@ A chaque appui sur le bouton, après avoir incrémenté la valeur du nombre de c
 
 - Exemple: `Nombre de click est pair`
 - Exemple: `Nombre de click est impair`
+
+### Opérations sur les chaînes de caractères
+
+La page https://www.w3schools.com/jsref/jsref_obj_string.asp donne une vision de l'ensemble des fonctions disponibles pour manipuler des chaînes de caractères.
+
+#### Exemples
+
+Pour connaître la longueur d'une chaîne, on utilise son attribut `length`
+
+```javascript
+var dixLettres = "abcdefghij"
+console.log(dixLettres.length) //10
+```
+
+La méthode `charAt()` donne le caractère positionné à l'index donné en paramètre:
+
+```javascript
+console.log(dixLettres.charAt(0)) //a
+console.log(dixLettres.charAt(1)) //b
+console.log(dixLettres.charAt(2)) //c
+```
+
+La méthode `substr()` renvoie un sous-ensemble de la chaîne:
+
+```javascript
+//A partir du 3ème caractère
+console.log(dixLettres.substr(2)) //cdefghij
+```
+
+```javascript
+//A partir du 3ème caractère, longueur 2
+console.log(dixLettres.substr(4,2)) //cd
+```
+
+La méthode `substring()` renvoie un sous-ensemble de la chaîne:
+
+```javascript
+//A partir du 3ème caractère
+console.log(dixLettres.substring(2)) //cdefghij
+```
+
+```javascript
+//Entre le 5ème et le 3ème caractère
+console.log(dixLettres.substring(4,2)) //cd
+//Entre le 3ème (inclu) et le 7ème (exclu) caractère
+console.log(dixLettres.substring(2,6)) //cde
+```
+
+### Boucles
+
+Nous allons maintenant utiliser des boucles pour modifier la page.
+
+Les boucles disponibles en Javascript sont les boucles `for`, `while` et `do . . . while`
+
+La page suivante donne plus d'explications:
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
+
+#### Exercices
+
+Reprendre le fichier `index-javascript-2-button.html` et le renommer en `index-javascript-2-button-exerciceX.html` ou X sera remplacé par le numéro de l'exercice.
+
+##### Exercice 6
+
+Lors de l'appui sur le bouton, vous devez ajouter autant de paragraphes que de lettres du texte initial dans le document HTML.
+
+Pour cela, vous allez vous appuyer sur cet exemple, qui montre comment ajouter un élément texte dans un autre élément:
+
+```javascript
+function nomFonction(){
+    var node = document.getElementById("texte");
+    node.innerHTML = "Le bouton a été appuyé"
+
+    var contenant = document.getElementById("container");
+    var parag = document.createElement("P"); //créer un paragraphe
+    parag.innerHTML = "Z"
+    contenant.appendChild(parag)
+}
+```
+
+Au moment de l'appui sur le bouton, on devrait voir apparaître ceci (en dessous du nouveau texte `Le bouton a été appuyé`):
+
+```
+D
+u
+
+t
+e
+x
+t
+e
+
+d
+a
+n
+s
+
+l
+e
+
+p
+a
+r
+a
+g
+r
+a
+p
+h
+e
+```
+
+#### Exercice 7
+
+Maintenant, on vous demande d'afficher le texte initial en lui enlevant le dernier caractère à chaque nouveau paragraphe jusqu'à ce qu'il n'y ai plus aucun caractère à afficher:
+
+```
+Du texte dans le paragraphe
+Du texte dans le paragraph
+Du texte dans le paragrap
+Du texte dans le paragra
+Du texte dans le paragr
+Du texte dans le parag
+...
+```
+
+#### Exercice 7
+
+Idem mais cette fois il faut enlever le premier caractère à chaque nouveau paragraphe jusqu'à ce qu'il n'y ai plus aucun caractère à afficher:
+
+```
+Du texte dans le paragraphe
+u texte dans le paragraphe
+ texte dans le paragraphe
+texte dans le paragraphe
+exte dans le paragraphe
+xte dans le paragraphe
+...
+```
+
+#### Exercice 9
+
+Ici, on vous demande d'afficher le texte initial en l'inversant plutôt que de le remplacer par un nouveau texte:
+
+```
+ehpargarap el snad etxte uD
+```
+ 
