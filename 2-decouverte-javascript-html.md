@@ -32,18 +32,124 @@ texte = "Mon texte"
 
 Vous venez d'affecter votre première variable.
 
-Recharger la page, que constatez-vous
+Rechargez la page et observez la console, que constatez-vous ?
 
-#### Permutation de variable
+Ajoutez maintenant l'instruction suivante à la dernière ligne de votre script:
 
-Affecter la valeur 2 à a et la valeur 4 à b
+```javascript
+console.log(texte)
+```
+
+#### Création d'une nouvelle variable
+
+Ajoutez les instructions suivantes:
+
+```javascript
+var deuxieme = "second texte"
+//Commentaire: la bonne manière de déclarer une variable est de faire précéder son nom par la déclaration `var`
+
+console.log(deuxieme)
+console.log(texte)
+```
+
+Que constatez-vous ?
+
+
+#### Affectation de variables entières
+
+Affecter la valeur 2 à une nouvelle variable `a` et la valeur 4 à `b` en écrivant ce programme:
+
+```javascript
+a = 2
+b = 4
+console.log("a=" , a)
+console.log("b=" , a)
+```
+
+Exécutez le programme en rechargeant le document html
+
+#### Permutations de variables
+
+
+Tentez maintenant de permuter les valeurs des variables `a` et `b`.
+
+Que constatez-vous ? De quoi avez-vous besoin pour que cela fonctionne correctement ?
 
 #### Opérateurs mathématiques
 
+Cette page donne un résumé des opérations arithmétiques disponibles en javascript :
+
 https://www.w3schools.com/js/js_operators.asp
 
+Vous allez vous intéresser aux opérations suivantes:
+
+| Operator |	Description | Remarque |
+|---|---|---|
+|+  |	Addition      |   |
+|-  |	Subtraction   |   |
+|*  |	Multiplication|   |
+|/  |	Division      |   |
+|%  |	Modulo       | Reste de la division euclidienne  |
+|++ | 	Incrémentation unaire    | essayer de placer l'opérateur avant ou après l'opérande pour en constater les effets  |
+|-- | 	Décrémententation unaire    | essayer de placer l'opérateur avant ou après l'opérande pour en constater les effets |
+
+Une opération unaire s'applique sur une seule opérande
 
 
+### Fonctions
+
+Utilisez un nouveau fichier html (en vous basant sur le fichier html précédemment utilisé), que vous nommerez `index-javascript-fonctions.html`
+
+Une fonction est un conteneur qui permet de stocker des suites d'instructions dans un programme.
+
+La déclaration se fait avec
+
+- le mot clé `function`
+- suivi du nom de la fonction (qui servira d'identifiant à cette fonction)
+- une parenthèse ouvrante
+- une liste d'arguments (ou paramètres de la fonction)
+- une parenthèse fermante
+- une accolade ouvrante
+- une suite d'instructions
+- une accolade fermante
+
+L'appel de la fonction se fait en écrivant de la fonction suivie d'une parenthèse ouvrante, des valeurs à affecter aux paramètres puis d'une parenthèse fermante.
+
+#### Fonction sans argument
+
+
+```javascript
+function bonjour(){
+  console.log("Hello world depuis une fonction")
+}
+bonjour()
+```
+
+
+#### Multiplication
+
+Voici un exemple de fonction permettant de multiplier deux valeurs:
+
+```javascript
+function multiplication(x, y){
+  return x * y
+}
+var resultat = multiplication(3, 4)
+console.log(resultat)
+```
+
+#### Autres opérations
+
+Ecrire dans votre programme les fonctions pour les autres opérateurs:
+
+- `addition`
+- `division`
+- `soustraction`
+- `modulo`
+- `incremente`
+- `decremente`
+
+Exécuter ces fonctions dans votre programme
 
 ### Stockage de valeur javascript
 
