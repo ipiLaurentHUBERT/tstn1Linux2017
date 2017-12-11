@@ -28,3 +28,21 @@ Chaque appui sur le bouton va ajouter un nouveau mot au texte existant.
 - quatrième appui: "Du texte dans le paragraphe. Le bouton a"
 - cinquième appui: "Du texte dans le paragraphe. Le bouton a été"
 - etc
+
+#### Exercice 4
+
+Vous allez rajouter une zone de texte avec un nouvel identifiant (`id="nombre_click"`), en dessous du `paragraph` ayant l'id `texte`
+
+Cette zone de texte affiche le nombre de click sur le bouton qui ont été effectués depuis le chargement de la page.
+
+Lors de l'appui sur le bouton, vous devez incrémenter ce nombre de clicks et l'afficher dans la zone `nombre_click`.
+
+#### Exercice 5
+
+Rajouter une zone de texte avec un nouvel identifiant (`id="parite_nombre_click"`), en dessous du `paragraph` ayant l'id `nombre_click`
+
+
+A chaque appui sur le bouton, après avoir incrémenté la valeur du nombre de click, indiqué dans cette dernière zone si le nombre de click est pair ou impair.
+
+- Exemple: `Nombre de click est pair`
+- Exemple: `Nombre de click est impair`
