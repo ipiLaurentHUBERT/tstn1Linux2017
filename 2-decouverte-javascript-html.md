@@ -2,6 +2,49 @@
 
 ## Exercices
 
+
+### Utilisation de la console
+
+Prendre le fichier `index-javascript-programme.html`
+
+
+#### Programme Hello world
+
+C'est le programme le plus simple.
+
+Ajouter l'instruction suivante entre les balises `<script>` et `</script>`:
+
+```javascript
+console.log("Hello world !")
+```
+
+Ouvrir le fichier `html` dans votre navigateur et afficher les outils du développeur. Aller dans l'onglet **Console**.
+
+Que voyez-vous ?
+
+#### Affectation de variable
+
+A la suite du programme précédent (toujours entre les balises `script`) ajouter l'instruction suivante:
+
+```javascript
+texte = "Mon texte"
+```
+
+Vous venez d'affecter votre première variable.
+
+Recharger la page, que constatez-vous
+
+#### Permutation de variable
+
+Affecter la valeur 2 à a et la valeur 4 à b
+
+#### Opérateurs mathématiques
+
+https://www.w3schools.com/js/js_operators.asp
+
+
+
+
 ### Stockage de valeur javascript
 
 #### Exercice 1
